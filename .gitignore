@@ -116,3 +116,5 @@ API
 Training
 Blog
 About
+.vsconfig
+/[Pp]ackages/packages-lock.json
