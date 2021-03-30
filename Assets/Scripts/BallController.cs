@@ -2,7 +2,7 @@
 using static UnityEngine.Input;
 
 
-public class Controller : MonoBehaviour
+public class BallController : MonoBehaviour
 {
     [SerializeField] private float _speed = 10f;
 
@@ -13,10 +13,10 @@ public class Controller : MonoBehaviour
 
     void Update()
     {
-        ControlLMove();
+        ControllMove();
     }
 
-    private void ControlLMove()
+    private void ControllMove()
     {
         if (GetKey(KeyCode.W))
         {
