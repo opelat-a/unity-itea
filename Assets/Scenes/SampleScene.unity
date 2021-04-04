@@ -456,6 +456,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _speed: 10
+  _initialAngle: 0
+  _angle: 5
+  _smoothRotate: 5
 --- !u!54 &736494245
 Rigidbody:
   m_ObjectHideFlags: 0

@@ -8,12 +8,17 @@ public class BallController : MonoBehaviour
 
     void Start()
     {
-        
+  
+    }
+
+    private void FixedUpdate()
+    {
+        ControllMove();
     }
 
     void Update()
     {
-        ControllMove();
+        
     }
 
     private void ControllMove()

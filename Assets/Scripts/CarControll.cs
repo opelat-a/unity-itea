@@ -5,18 +5,21 @@ using static UnityEngine.Input;
 public class CarControll : MonoBehaviour
 {
     [SerializeField] private float _speed = 5f;
-
-    private float _angle = 0f;
-    private float _smooth = 5.0f;
+    [SerializeField] private float _initialAngle = 0f;
+    [SerializeField] private float _angle = 1f;
+    [SerializeField] private float _smoothRotate = 5.0f;
 
     void Start()
     {
-        transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(0, 0, 0), 0);
+    }
+
+    private void FixedUpdate()
+    {
+        ControllMove();
     }
 
     void Update()
-    {
-        ControllMove();
+    {    
     }
 
     private void ControllMove()
@@ -34,11 +37,11 @@ public class CarControll : MonoBehaviour
 
         else if (GetKey(KeyCode.D))
         {
-            Rotate(1);
+            Rotate(_angle);
         }
         else if (GetKey(KeyCode.A))
         {
-            Rotate(-1);
+            Rotate(-_angle);
         }
     }
     private void Movement(Vector3 direction)
@@ -48,8 +51,8 @@ public class CarControll : MonoBehaviour
 
     private void Rotate(float direction)
     {
-        _angle += direction;
-        Quaternion target = Quaternion.Euler(0, _angle, 0);
-        transform.rotation = Quaternion.Slerp(transform.rotation, target, Time.deltaTime * _smooth);
+        _initialAngle += direction;
+        Quaternion target = Quaternion.Euler(0, _initialAngle, 0);
+        transform.rotation = Quaternion.Slerp(transform.rotation, target, Time.deltaTime * _smoothRotate);
     }
 }
